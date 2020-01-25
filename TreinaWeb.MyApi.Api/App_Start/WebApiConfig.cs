@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using TreinaWeb.MyApi.Api.Formatters;
 
 namespace TreinaWeb.MyApi.Api
 {
@@ -19,6 +20,9 @@ namespace TreinaWeb.MyApi.Api
                 ContractResolver = new CamelCasePropertyNamesContractResolver(),
                 NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore
             };
+
+            //Adiciona um formatador CSV que foi criado
+            config.Formatters.Add(new CsvMediaTypeFormatter());
 
             //Remove a possibilidade de a API responder no formato XML
             //var xmlFormatter = config.Formatters.XmlFormatter;
