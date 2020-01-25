@@ -11,7 +11,7 @@ namespace TreinaWeb.MyApi.Api.DTOs
         public int Id { get; set; }
 
         [Required(ErrorMessage = "O nome do aluno é obrigatório.")]
-        [StringLength(maximumLength: 2, MinimumLength = 50, ErrorMessage = "O nome deve ter no mínimo 2 caracteres e no máximo 50 caracteres.")]
+        [StringLength(maximumLength: 50, MinimumLength = 2, ErrorMessage = "O nome deve ter no mínimo 2 caracteres e no máximo 50 caracteres.")]
         public string Nome { get; set; }
         [StringLength(100, ErrorMessage = "O endereço deve ter no máximo 200 caracteres.")]
         public string Endereco { get; set; }
