@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -11,6 +12,17 @@ namespace TreinaWeb.MyApi.Api
         {
             // Serviços e configuração da API da Web
 
+            //Faz com que a API responda as request em CamelCase
+            var jsonFormatter = config.Formatters.JsonFormatter;
+            jsonFormatter.SerializerSettings = new Newtonsoft.Json.JsonSerializerSettings
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore
+            };
+
+            //Remove a possibilidade de a API responder no formato XML
+            //var xmlFormatter = config.Formatters.XmlFormatter;
+            //config.Formatters.Remove(xmlFormatter);
             // Rotas da API da Web
             config.MapHttpAttributeRoutes();
 
