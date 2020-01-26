@@ -37,7 +37,7 @@ namespace TreinaWeb.MyApi.Api.Controllers
                 return NotFound();
             }
             AlunoDTO alunoDto = AutoMapperManager.Instance.Mapper.Map<Aluno, AlunoDTO>(aluno);
-            return Content(HttpStatusCode.Found, alunoDto);
+            return Content(HttpStatusCode.OK, alunoDto);
         }
 
         [ApplyModelValidation]

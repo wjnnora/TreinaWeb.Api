@@ -14,7 +14,7 @@ namespace TreinaWeb.MyApi.Api.Filters
 
         public override void OnActionExecuted(HttpActionExecutedContext actionExecutedContext)
         {
-            if ((actionExecutedContext.Response.IsSuccessStatusCode || actionExecutedContext.Response.StatusCode == System.Net.HttpStatusCode.Found)
+            if (actionExecutedContext.Response.IsSuccessStatusCode
                 && actionExecutedContext.Request.Headers.SelectMany(x => x.Value).Any(x => x.Contains("hal")))
             {
                 ObjectContent responseContent = actionExecutedContext.Response.Content as ObjectContent;
