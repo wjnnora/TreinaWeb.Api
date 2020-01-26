@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using TreinaWeb.MyApi.Api.HATEOAS;
 
 namespace TreinaWeb.MyApi.Api.DTOs
 {
-    public class AlunoDTO
+    public class AlunoDTO : RestResource
     {
         public int Id { get; set; }
 
